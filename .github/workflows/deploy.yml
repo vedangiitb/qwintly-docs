@@ -53,8 +53,8 @@ jobs:
             --platform managed \
             --allow-unauthenticated \
             --service-account ${{ vars.DOCS_SA_EMAIL }} \
-            --set-env-vars GITHUB_PROJECT_URL=${{vars.GITHUB_PROJECT_URL}} \
-            --set-secrets GITHUB_PAT=github-secret-key:latest, \
+            --set-env-vars GITHUB_PROJECT_URL=${{vars.PROJECT_URL}} \
+            --set-secrets GITHUB_PAT=git-token:latest, \
             --min-instances 0 \
             --max-instances 10 \
             --concurrency 1 \
