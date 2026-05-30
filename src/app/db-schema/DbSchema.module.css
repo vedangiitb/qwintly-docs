@@ -1,0 +1,469 @@
+.pageHeader {
+  margin-bottom: 2rem;
+}
+
+/* Horizontal Tabs Row */
+.tabsContainer {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 2rem;
+  padding-bottom: 0.25rem;
+  overflow-x: auto;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tabBtn svg {
+  opacity: 0.6;
+  transition: transform var(--transition-fast);
+}
+
+.tabBtn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.tabBtn:hover svg {
+  transform: translateY(-1px);
+}
+
+.tabActive {
+  color: var(--color-violet) !important;
+  border-bottom-color: var(--color-violet);
+  background: rgba(139, 92, 246, 0.03);
+}
+
+.tabActive svg {
+  color: var(--color-violet);
+  opacity: 1;
+}
+
+.viewportWrapper {
+  min-height: 400px;
+}
+
+.tabContentFade {
+  animation: tab-fade-in var(--transition-normal);
+}
+
+@keyframes tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Relational guide bar */
+.guideContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .guideContainer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.guideTip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.guideTip svg {
+  color: var(--color-cyan);
+}
+
+.legend {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendColor {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legendCurrent {
+  background: var(--color-violet);
+  box-shadow: 0 0 6px var(--color-violet);
+}
+
+.legendParent {
+  background: var(--color-amber);
+  box-shadow: 0 0 6px var(--color-amber);
+}
+
+.legendChild {
+  background: var(--color-cyan);
+  box-shadow: 0 0 6px var(--color-cyan);
+}
+
+/* Database grid */
+.tablesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tableCard {
+  transition: all var(--transition-slow);
+  padding: 0 !important;
+  height: max-content;
+}
+
+/* Trace Highlighter states */
+.currentFocus {
+  border-color: var(--color-violet) !important;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+.parentHighlight {
+  border-color: var(--color-amber) !important;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.1) !important;
+  transform: translateY(-1px);
+}
+
+.childHighlight {
+  border-color: var(--color-cyan) !important;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.1) !important;
+  transform: translateY(-1px);
+}
+
+.fadeMuted {
+  opacity: 0.25;
+  filter: blur(0.5px) grayscale(60%);
+}
+
+/* Header detail panels */
+.tableHeader {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.tableTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.tableTitleRow svg {
+  color: var(--color-violet);
+}
+
+.tableName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-mono);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+  font-size: 0.725rem;
+}
+
+.metaBadge {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.rowCount {
+  font-family: var(--font-mono);
+  color: var(--color-cyan);
+}
+
+.tableDesc {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Body parameters lists */
+.tableBody {
+  padding: 1.5rem 1.75rem;
+}
+
+.columnsLabel {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+}
+
+.columnsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.colRow {
+  display: grid;
+  grid-template-columns: 240px 160px 90px 1fr;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 0.85rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .colRow {
+    grid-template-columns: 180px 130px 80px 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .colRow {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.85rem 0;
+  }
+}
+
+.colRow:last-child {
+  border-bottom: none;
+}
+
+.colNameWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.keyPk, .keyFk {
+  font-size: 0.75rem;
+  user-select: none;
+}
+
+.colName {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.pkBold {
+  color: var(--color-violet) !important;
+  font-weight: 700;
+}
+
+.colType {
+  font-family: var(--font-mono);
+  color: var(--color-cyan);
+  font-size: 0.775rem;
+}
+
+.colNull {
+  color: var(--text-muted);
+  font-size: 0.775rem;
+  font-family: var(--font-mono);
+}
+
+.colDesc {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Object Storage Buckets */
+.bucketsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .bucketsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bucketCard {
+  transition: all var(--transition-normal);
+}
+
+.bucketHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.bucketTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.bucketTitleRow svg {
+  color: var(--color-cyan);
+}
+
+.bucketName {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.bucketBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  font-size: 0.85rem;
+}
+
+.infoLabel {
+  color: var(--text-muted);
+  font-weight: 500;
+  width: 110px;
+}
+
+.infoValue {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.projectLink {
+  color: var(--color-cyan);
+  font-family: var(--font-mono);
+}
+
+.bucketDesc {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-top: 0.85rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.04);
+  padding-top: 0.85rem;
+}
+
+/* PG Custom Enums list styling */
+.sectionSubtitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sectionSubtitle svg {
+  color: var(--color-violet);
+}
+
+.enumsTableWrapper {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: var(--border-radius-md);
+  background: rgba(5, 7, 15, 0.2);
+}
+
+.enumsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.enumsTable th {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  font-size: 0.775rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.enumsTable td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.enumsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.enumName {
+  font-family: var(--font-mono);
+  color: var(--color-violet);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.enumValsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.enumValPill {
+  font-size: 0.725rem !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+}

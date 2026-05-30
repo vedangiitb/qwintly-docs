@@ -1,0 +1,142 @@
+.heroSection {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badgeLine {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.dividerDot {
+  color: var(--color-violet);
+  opacity: 0.5;
+}
+
+.metaInfo {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  max-width: 800px;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 720px;
+}
+
+/* Three Columns Platform Pillars */
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 960px) {
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillarIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  color: var(--color-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.1);
+}
+
+.pillarTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.pillarText {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Overall flow map section */
+.flowSection {
+  margin-bottom: 4rem;
+}
+
+.sectionDesc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: -0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.masterSvg {
+  display: block;
+  margin: auto;
+}
+
+/* Start guide cards */
+.startGuide {
+  margin-top: 2rem;
+}
+
+.guideCard {
+  background: linear-gradient(135deg, rgba(13, 18, 33, 0.7) 0%, rgba(9, 13, 24, 0.8) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: var(--border-radius-lg);
+  padding: 2.25rem;
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.5),
+              0 0 25px -2px rgba(139, 92, 246, 0.05);
+}
+
+.guideTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.guideText {
+  color: var(--text-secondary);
+  font-size: 0.925rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.guideActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,166 @@
+.pageHeader {
+  margin-bottom: 2.25rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.slash {
+  color: var(--color-violet);
+  opacity: 0.5;
+}
+
+.current {
+  color: var(--text-secondary);
+}
+
+/* Three Columns Highlights cards */
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 960px) {
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconWrapper {
+  font-size: 1.25rem;
+}
+
+.cardText {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.cardText code {
+  font-family: var(--font-mono);
+  color: var(--color-cyan);
+  background: rgba(6, 182, 212, 0.06);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Master canvas section */
+.flowSection {
+  margin-bottom: 4rem;
+}
+
+.canvasHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-violet);
+  box-shadow: 0 0 8px var(--color-violet);
+}
+
+.sectionSubtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.masterSvg {
+  display: block;
+  margin: auto;
+}
+
+/* Ingestion stages flow */
+.stagesSection {
+  margin-top: 2rem;
+}
+
+.stagesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 2.25rem;
+  border-radius: var(--border-radius-lg);
+}
+
+.stageRow {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  padding-bottom: 2rem;
+}
+
+.stageRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .stageRow {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.stageNumber {
+  font-size: 2.25rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--color-violet);
+  text-shadow: 0 0 15px var(--color-violet-glow);
+  line-height: 1;
+}
+
+.stageContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.stageTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.stageText {
+  color: var(--text-secondary);
+  font-size: 0.925rem;
+  line-height: 1.6;
+}
+
+.stageText code {
+  font-family: var(--font-mono);
+  color: var(--color-cyan);
+}

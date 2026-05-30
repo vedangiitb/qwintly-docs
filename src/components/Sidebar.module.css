@@ -1,0 +1,333 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: transform var(--transition-normal);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Toggle button floating top-left */
+.mobileToggle {
+  display: none;
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 110;
+  background: rgba(13, 18, 33, 0.8);
+  border: 1px solid var(--card-border-hover);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-sm);
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+@media (max-width: 1024px) {
+  .mobileToggle {
+    display: flex;
+  }
+}
+
+.mobileToggle:hover {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--color-violet);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+/* Overlay for Mobile Menu drawer */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 5, 12, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 90;
+}
+
+/* Brand Section styling */
+.logoSection {
+  height: var(--header-height);
+  padding: 0 1.75rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 1.25rem;
+}
+
+.logoOrb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--color-violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 12px var(--color-violet-glow);
+}
+
+.logoCore {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  animation: logo-glow 3s infinite ease-in-out;
+}
+
+@keyframes logo-glow {
+  0%, 100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 5px var(--color-indigo);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 12px var(--color-cyan);
+  }
+}
+
+.logoText {
+  letter-spacing: -0.03em;
+  font-family: var(--font-sans);
+}
+
+.logoSub {
+  color: var(--color-cyan);
+  font-weight: 500;
+}
+
+/* Navigation Lists styling */
+.navSection {
+  flex: 1;
+  padding: 1.75rem 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.groupLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 1rem 0.75rem 0.5rem 0.75rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.925rem;
+  font-weight: 500;
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+
+.navLink svg {
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.03);
+}
+
+.navLink:hover svg {
+  opacity: 1;
+  color: var(--color-violet);
+  transform: translateX(2px);
+}
+
+.active {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%) !important;
+  border-color: rgba(139, 92, 246, 0.15) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02),
+              0 4px 20px -5px rgba(0, 0, 0, 0.3);
+}
+
+.active svg {
+  opacity: 1 !important;
+  color: var(--color-violet) !important;
+}
+
+/* Collapsible submenu elements */
+.collapsibleWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.collapseBtn {
+  justify-content: flex-start;
+}
+
+.chevron {
+  margin-left: auto;
+  opacity: 0.5;
+  transition: transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.expanded {
+  transform: rotate(180deg);
+}
+
+.subList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-left: 1.5rem;
+  margin: 0.25rem 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.subLink {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.subLink:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.subActive {
+  color: var(--color-cyan) !important;
+  font-weight: 600;
+  background: rgba(6, 182, 212, 0.04) !important;
+}
+
+.jobDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-amber);
+  box-shadow: 0 0 6px var(--color-amber);
+}
+
+.serviceDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 6px var(--color-cyan);
+}
+
+.subText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar bottom status details */
+.footerSection {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.versionInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.badge {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--color-indigo);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.systemStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-emerald);
+  box-shadow: 0 0 8px var(--color-emerald);
+  animation: pulse-health 2s infinite;
+}
+
+@keyframes pulse-health {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 12px var(--color-emerald);
+  }
+}
+
+.statusText {
+  font-size: 0.725rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
