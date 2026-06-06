@@ -27,7 +27,7 @@ export default function Home() {
           </span>
           <span>•</span>
           <span className="flex items-center gap-1">
-            <BookOpen className="w-3 h-3" /> Specifications v1.0.0
+            <BookOpen className="w-3 h-3" /> Specifications v1.0.1
           </span>
         </div>
 

@@ -15,6 +15,7 @@ import {
   Layers,
   Menu,
   Monitor,
+  Radio,
   Server,
   X,
 } from "lucide-react";
@@ -293,13 +294,36 @@ export default function Sidebar() {
               </Link>
             </div>
           </div>
+
+          {/* Other flows & details Group */}
+          <div>
+            <div className="px-3 text-[11px] font-semibold text-neutral-400 dark:text-neutral-500 tracking-wider uppercase mb-2">
+              Other flows & details
+            </div>
+
+            <div className="space-y-1">
+              <Link
+                href="/other-flows/generation-status-streaming"
+                className={cn(
+                  "flex items-center gap-2.5 px-3 py-1.5 text-[14px] font-medium rounded-md transition-colors cursor-pointer",
+                  isActive("/other-flows/generation-status-streaming")
+                    ? "text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 font-semibold"
+                    : "text-muted-foreground hover:text-foreground hover:bg-neutral-100 dark:hover:bg-neutral-900",
+                )}
+                onClick={() => setIsOpen(false)}
+              >
+                <Radio className="w-4 h-4" />
+                <span>Generation Status Streaming</span>
+              </Link>
+            </div>
+          </div>
         </nav>
 
         {/* Footer Area showing operational state */}
         <div className="p-4 border-t border-border bg-neutral-100/50 dark:bg-[#09090b]/50">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[12px] font-mono text-muted-foreground">
-              v1.0.0
+              v1.0.1
             </span>
             <span className="px-1.5 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-border text-foreground">
               docs
