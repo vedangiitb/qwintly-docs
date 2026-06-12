@@ -410,7 +410,7 @@ data: {"type":"done","agentMessageId":"msg_agent_001","response":"Full agent pla
     parameters: [
       { name: "Authorization", type: "string", location: "header", required: true, description: "Bearer <Supabase_JWT_Token>" },
       { name: "chatId", type: "string", location: "query", required: true, description: "The unique chat thread identifier." },
-      { name: "sessionId", type: "string", location: "query", required: false, description: "Optional specific session ID to filter." }
+      { name: "sessionId", type: "string", location: "query", required: true, description: "The specific session ID to filter." }
     ],
     responseBody: `event: message
 data: {"status":"generating","percentage":45,"step":"Generating components...","logs":["Writing index.html","Creating main.css"]}`
