@@ -1,80 +1,18 @@
 "use client";
 
+import type { ChangelogData } from "@/lib/changelog";
 import { cn } from "@/lib/utils";
-import { Calendar, ExternalLink, Filter, Loader2, User } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Calendar, ExternalLink, Filter, User } from "lucide-react";
+import { useState } from "react";
 
-interface ChangelogItem {
-  text: string;
-  category: "Added" | "Fixed" | "Optimized" | "Security";
-}
-
-interface Release {
-  version: string;
-  codename: string;
-  date: string;
-  author: string;
-  summary: string;
-  url: string;
-  prerelease: boolean;
-  items: ChangelogItem[];
-}
-
-interface ChangelogResponse {
-  releases: Release[];
-  sourceUrl: string;
-  error?: string;
-}
-
-export default function Changelog() {
-  const [releases, setReleases] = useState<Release[]>([]);
-  const [sourceUrl, setSourceUrl] = useState(
-    "https://github.com/vedangiitb/qwintly/releases",
-  );
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export default function ChangelogClient({
+  releases,
+  sourceUrl,
+  error,
+}: ChangelogData) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const categories = ["All", "Added", "Fixed", "Optimized", "Security"];
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadChangelog() {
-      try {
-        const response = await fetch("/api/changelog");
-        const data = (await response.json()) as ChangelogResponse;
-
-        if (!response.ok) {
-          throw new Error(data.error || "Unable to load changelog.");
-        }
-
-        if (!isMounted) return;
-
-        setReleases(data.releases);
-        setSourceUrl(data.sourceUrl);
-        setError(null);
-      } catch (err) {
-        if (!isMounted) return;
-
-        setError(
-          err instanceof Error
-            ? err.message
-            : "Unable to load changelog from GitHub.",
-        );
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
-    }
-
-    loadChangelog();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   const getBadgeStyles = (category: string) => {
     switch (category) {
@@ -149,12 +87,7 @@ export default function Changelog() {
       </div>
 
       <div className="relative border-l border-border pl-8 space-y-12 ml-4 select-none">
-        {isLoading ? (
-          <div className="border border-dashed border-border/85 p-12 text-center text-muted-foreground text-[14px] rounded-lg flex items-center justify-center gap-2">
-            <Loader2 className="w-4 h-4 animate-spin" />
-            Loading releases from GitHub.
-          </div>
-        ) : error ? (
+        {error ? (
           <div className="border border-dashed border-rose-500/30 bg-rose-500/5 p-12 text-center text-rose-600 dark:text-rose-400 text-[14px] rounded-lg">
             {error}
           </div>
