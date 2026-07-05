@@ -19,6 +19,7 @@ import {
   Server,
   X,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
@@ -71,12 +72,17 @@ export default function Sidebar() {
         <div className="h-16 border-b border-border flex items-center px-6">
           <Link
             href="/"
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2.5 group"
             onClick={() => setIsOpen(false)}
           >
-            <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center transition-transform group-hover:scale-105">
-              <div className="w-2.5 h-2.5 rounded-full bg-background" />
-            </div>
+            <Image
+              src="/qwintlylogo.png"
+              alt=""
+              width={28}
+              height={28}
+              className="h-7 w-7 shrink-0 transition-transform group-hover:scale-105"
+              priority
+            />
             <span className="font-semibold text-[16px] text-foreground tracking-tight">
               qwintly<span className="text-emerald-500 font-normal">.docs</span>
             </span>
